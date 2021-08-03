@@ -1,7 +1,7 @@
 import fixPath from 'fix-path';
 import path from 'path';
 import { ipcRenderer, app, BrowserWindow } from 'electron';
-import { killAllServices } from 'service-manager';
+import { killAllServices } from './service-manager';
 
 fixPath();
 
