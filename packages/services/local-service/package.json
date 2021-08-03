@@ -1,0 +1,21 @@
+{
+  "name": "local-service",
+  "description": "express microservice",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "ts-node ./bin/www",
+    "dev": "nodemon ./bin/www",
+    "build": "tsc",
+    "test": "jest",
+    "test:cover": "jest --coverage"
+  },
+  "dependencies": {
+    "body-parser": "1.18.3",
+    "cookie-parser": "1.4.3",
+    "cors": "2.8.5",
+    "express": "4.16.3",
+    "ts-node": "10.1.0",
+    "uuid": "8.3.2"
+  }
+}
