@@ -1,8 +1,7 @@
 {
-    "name": "client",
+    "name": "service-manager",
     "version": "1.0.0",
     "description": "",
-    "main": "main.ts",
     "scripts": {
         "build": "rm -rf build && tsc",
         "electron": "npm run build && electron ./build/main.js",
@@ -10,7 +9,8 @@
     },
     "dependencies": {
         "electron": "13.1.7",
-        "fix-path": "3.0.0"
+        "fix-path": "3.0.0",
+        "get-port": "^5.1.1"
     },
     "author": "",
     "license": "ISC",

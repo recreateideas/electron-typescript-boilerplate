@@ -2,7 +2,7 @@
     "compilerOptions": {
         "outDir": "./build",
         "module": "commonjs",
-        "lib": ["es2018"],
+        "lib": ["es2018", "esnext", "dom"],
         "target": "es2018",
         "noImplicitAny": true,
         "moduleResolution": "node",
