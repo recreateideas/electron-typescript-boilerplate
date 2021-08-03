@@ -1,8 +1,7 @@
 {
   "name": "stacks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
-  "main": "index.ts",
   "private": true,
   "workspaces": [
     "packages/services/*",
@@ -14,7 +13,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "convert": "lerna link convert",
     "publish": "lerna publish",
-    "version": "lerna version"
+    "version": "lerna version --conventional-graduate --yes"
   },
   "author": "",
   "license": "ISC",
