@@ -13,8 +13,5 @@
         "fix-path": "3.0.0"
     },
     "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "@types/node": "^16.4.10"
-    }
+    "license": "ISC"
 }
