@@ -1,8 +1,12 @@
-import '../__mocks__';
-import { Request, Response } from 'express';
-import * as health from './health';
+import { Response } from 'express';
+import { IActionHttpRequest } from './docker-compose.d';
+import * as dockerService from '../services/docker';
+import * as docker from './docker-compose';
 
-const req = {} as any | Request;
+const req = {
+    params: 'up',
+    body: {},
+} as any | IActionHttpRequest;
 
 const res = {
     status: jest.fn().mockImplementation(() => ({
@@ -13,8 +17,11 @@ const res = {
     json: jest.fn(),
 } as any | Response;
 describe('healthCheck', () => {
-    it('should always return 200 when hit', async () => {
-        await health.healthCheck(req, res);
-        expect(res.status).toHaveBeenCalledWith(200);
+    it('should call composeAction once', async () => {
+        Object.defineProperty(dockerService, 'composeAction', {
+            value: jest.fn(),
+        });
+        await docker.action(req, res);
+        expect(dockerService.composeAction).toHaveBeenCalledTimes(1);
     });
 });

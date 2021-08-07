@@ -1,13 +1,16 @@
-import { Request, Response } from 'express';
+import { Response } from 'express';
+import { docker as dockerService } from '../services';
+import { IActionHttpRequest, IActionHttpResponse } from './docker-compose.d';
 
-const action = async (req: Request, res: Response): Promise<void> => {
+const action = async (req: IActionHttpRequest, res: Response): Promise<void> => {
     const {
         params: { action },
+        body: { composeFile, serviceName = '', options = '' },
     } = req;
-    console.log({ action });
+    const result = dockerService.composeAction({ composeFile, action, serviceName, options });
     res.status(200).send({
-        action,
-    });
+        result,
+    } as IActionHttpResponse);
 };
 
 export { action };

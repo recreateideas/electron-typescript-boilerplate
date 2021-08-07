@@ -10,14 +10,14 @@
         "strictNullChecks": true,
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
-        "sourceMap": true,
+        "sourceMap": false,
         "experimentalDecorators": true,
         "declaration": true,
-        "declarationMap": true,
+        "declarationMap": false,
         "resolveJsonModule": true,
         "baseUrl": ".",
         "types": ["node", "jest"]
     },
-    "include": ["*"],
+    "include": ["app.ts", "bin", "src", "modules.d.ts"],
     "exclude": ["node_modules"]
 }
