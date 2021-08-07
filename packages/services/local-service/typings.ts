@@ -1,14 +1,14 @@
-export interface IApiHttpRequest {
-    body?: any;
+import { Request } from 'express';
+export interface IApiHttpRequest extends Request {
+    body: any;
     headers: {
         authorization?: string;
         'content-type'?: 'application/json' | 'application/octet-stream';
     };
-    user?: any;
     method: 'DELETE' | 'GET' | 'OPTIONS' | 'POST' | 'PUT' | 'PATCH';
-    params?: {};
+    params: {};
     path: string;
-    query?: {};
+    query: {};
 }
 export interface ApiError extends Error {
     status?: number;

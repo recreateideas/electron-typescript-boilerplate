@@ -3,14 +3,14 @@ import { ChildProcess } from 'child_process';
 export interface IContainerAction {
     composeFile: string;
     action: string;
-    serviceName: string;
+    serviceName?: string;
 }
 
 export interface IComposeAction {
     composeFile: string;
     action: string;
-    serviceName: string;
-    options: string;
+    serviceName?: string;
+    options?: string;
 }
 
 export interface IRunCommand {

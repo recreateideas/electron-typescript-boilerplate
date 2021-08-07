@@ -10,6 +10,7 @@
         "strictNullChecks": true,
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
+        "inlineSourceMap": true,
         "sourceMap": false,
         "experimentalDecorators": true,
         "declaration": true,

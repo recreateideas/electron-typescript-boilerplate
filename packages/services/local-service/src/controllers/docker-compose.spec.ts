@@ -16,7 +16,7 @@ const res = {
     send: jest.fn(),
     json: jest.fn(),
 } as any | Response;
-describe('healthCheck', () => {
+describe('composeAction', () => {
     it('should call composeAction once', async () => {
         Object.defineProperty(dockerService, 'composeAction', {
             value: jest.fn(),

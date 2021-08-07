@@ -1,8 +1,8 @@
-import { Response } from 'express';
+import { Request, Response } from 'express';
 import { docker as dockerService } from '../services';
-import { IActionHttpRequest, IActionHttpResponse } from './docker-compose.d';
+import { IActionHttpResponse } from './docker-compose.d';
 
-const action = async (req: IActionHttpRequest, res: Response): Promise<void> => {
+const action = async (req: Request, res: Response): Promise<void> => {
     const {
         params: { action },
         body: { composeFile, serviceName = '', options = '' },

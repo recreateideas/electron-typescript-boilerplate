@@ -1,4 +1,3 @@
-import '../__mocks__';
 import { Request, Response } from 'express';
 import * as health from './health';
 

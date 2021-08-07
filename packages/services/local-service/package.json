@@ -8,7 +8,7 @@
         "dev": "nodemon --files ./bin/www",
         "build": "rm -rf build && tsc",
         "test": "jest",
-        "test:cover": "jest --coverage"
+        "test:cover": "jest --silent --coverage"
     },
     "dependencies": {
         "body-parser": "1.18.3",

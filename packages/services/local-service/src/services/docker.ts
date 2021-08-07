@@ -8,7 +8,6 @@ import { IContainerAction, IComposeAction, IRunCommand, IIndexedChildProcess } f
 const _runCommandInChildProcess = ({ command, parse, type = 'execSync' }: IRunCommand): object => {
     const indexdChildProcess = { ...childProcess } as unknown as IIndexedChildProcess;
     const output = indexdChildProcess[type](command); //.toString();
-    console.log(output);
     return parse ? JSON.parse(output) : output;
 };
 
@@ -19,7 +18,11 @@ const saveJsonAsYaml = (path: string, jsonContent: string): void => {
     fs.writeFileSync(path, yaml.stringify(JSON.parse(jsonContent)));
 };
 
-const getYamlAsObject = (paths: string[]) =>
+interface IObjDictionary<T> {
+    [Key: string]: T;
+}
+
+const getYamlAsObject = (paths: string[]): IObjDictionary<object> =>
     paths.reduce(
         (allYamls, path) => ({
             ...allYamls,
