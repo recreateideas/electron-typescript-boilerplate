@@ -48,10 +48,10 @@ const createWindow = (): void => {
         show: false,
     });
 
-    mainWindow.loadFile(path.join(__dirname, '/app/react-app/build/index.html'));
+    mainWindow.loadFile(path.join(__dirname, './react-app-build/index.html'));
 
     if (debug) {
-        process.env.NODE_ENV = 'development';
+        Object.assign(process.env, { NODE_ENV: 'development' });
         mainWindow.webContents.openDevTools();
     }
 

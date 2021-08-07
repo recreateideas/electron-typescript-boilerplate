@@ -2,22 +2,22 @@
     "compilerOptions": {
         "outDir": "./build",
         "module": "commonjs",
-        "lib": ["es2018", "esnext", "dom"],
+        "lib": ["es2018", "dom"],
         "target": "es2018",
         "noImplicitAny": true,
         "moduleResolution": "node",
         "strictFunctionTypes": true,
         "strictNullChecks": true,
         "allowSyntheticDefaultImports": true,
+        "forceConsistentCasingInFileNames": true,
         "esModuleInterop": true,
         "sourceMap": true,
-        "declaration": true,
-        "declarationMap": true,
-        "experimentalDecorators": true,
         "resolveJsonModule": true,
         "baseUrl": ".",
-        "types": ["node", "jest"]
+        "types": ["node"],
+        "noFallthroughCasesInSwitch": true,
+        "isolatedModules": true
     },
-    "include": ["main.ts"],
+    "include": ["main.ts", "service-manager"],
     "exclude": ["node_modules"]
 }

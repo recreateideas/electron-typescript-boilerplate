@@ -5,7 +5,7 @@ import { spawn } from 'child_process';
 import path from 'path';
 import { logger } from './utils';
 
-const services = ['data-service'];
+const services = ['local-service'];
 
 const _runningServices = services.map(async (serviceName: string) => {
     const port = await getPort({ port: getPort.makeRange(3066, 3100) });

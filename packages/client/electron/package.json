@@ -1,0 +1,25 @@
+{
+    "name": "@stacks/electron",
+    "version": "1.0.0",
+    "description": "Electron wrapper for a react app",
+    "private": true,
+    "main": "./build/main.js",
+    "scripts": {
+        "build": "rm -rf build && tsc && yarn copy:react-app",
+        "electron": "npm run build && electron .",
+        "electron:debug": "yarn electron --debug",
+        "test": "echo \"Error: no test specified\"",
+        "copy:react-app": "cp -r node_modules/@stacks/react-app/build build/react-app-build",
+        "postinstall": "copy:react-app"
+    },
+    "dependencies": {
+        "electron": "13.1.7",
+        "fix-path": "3.0.0",
+        "@stacks/react-app": "1.0.0"
+    },
+    "devDependencies": {
+        "electron-devtools-installer": "3.2.0"
+    },
+    "author": "",
+    "license": "ISC"
+}

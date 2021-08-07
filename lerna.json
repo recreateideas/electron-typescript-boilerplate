@@ -1,8 +1,7 @@
 {
     "version": "1.0.0",
     "npmClient": "yarn",
-    "useWorkspaces": true,
-    "packages": ["packages/services/*", "packages/client"],
+    "packages": ["packages/services/*", "packages/client/*"],
     "command": {
         "publish": {
             "registry": "https://npm.pkg.github.com"
