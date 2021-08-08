@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { actions, useDispatch, selectors, useSelector } from '../redux';
 import { IServicePorts } from '../typings';
+import { defaultServicePorts } from './default-service-ports';
 
 const electron = { ...(window.require ? window.require('electron') : {}) };
 
@@ -9,7 +10,7 @@ const { ipcRenderer } = electron;
 const useServicePorts = () => {
     const dispatch = useDispatch();
     const {
-        common: { getServicePorts, setIsElectron },
+        common: { getServicePorts, setServicePorts, setIsElectron },
     } = actions;
     const { common: commonSelectors } = selectors;
     const servicePorts: IServicePorts = useSelector(commonSelectors.servicePorts);
@@ -18,10 +19,12 @@ const useServicePorts = () => {
         dispatch(setIsElectron(isElectron));
         if (isElectron) {
             dispatch(getServicePorts());
+        } else {
+            dispatch(setServicePorts(defaultServicePorts));
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-    return isElectron ? servicePorts : {};
+    return servicePorts;
 };
 
 export default useServicePorts;

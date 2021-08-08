@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { AxiosError } from 'axios';
+import { AxiosError, AxiosResponse } from 'axios';
 import { GetStore } from '../../store';
 import { fetcher, IFetcherConfig } from '../../../modules';
 import types from './types';
@@ -21,7 +21,7 @@ const getProducts = () => async (dispatch: Dispatch, getState: GetStore) => {
                 data: { message: error.message },
             });
         },
-        responseHandler: (response) => {
+        responseHandler: (response: AxiosResponse) => {
             dispatch({
                 type: types.GET_PRODUCTS_SUCCESS,
                 data: { products: response?.data?.products },

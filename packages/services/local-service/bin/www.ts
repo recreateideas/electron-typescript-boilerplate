@@ -21,7 +21,7 @@ const normalizePort = (val: string | undefined) => {
     if (port >= 0) return port;
     return false;
 };
-const port = normalizePort(process.env['data-service-port']) || 2999;
+const port = normalizePort(process.env['local-service-port']) || 2999;
 
 app.set('port', port);
 

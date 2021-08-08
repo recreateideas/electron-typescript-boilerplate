@@ -6,9 +6,11 @@
     "main": "main.ts",
     "scripts": {
         "build": "lerna run build --stream",
+        "build:react": "lerna run build --scope @stacks/react-app --stream",
+        "build:services": "lerna run build --scope @stacks/local-service --stream",
         "bootstrap": "yarn; lerna bootstrap; lerna run build",
         "test": "lerna run test --stream --parallel",
-        "electron": "lerna run electron --scope @stacks/electron  --stream",
+        "electron": "lerna run electron:debug --scope @stacks/electron  --stream",
         "react": "lerna run start --scope @stacks/react-app --stream",
         "services": "lerna run dev --scope @stacks/local-service --stream",
         "dev": "concurrently \"yarn react\" \"yarn services\"",

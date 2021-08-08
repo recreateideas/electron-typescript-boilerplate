@@ -1,5 +1,5 @@
 export interface IServicePorts {
-    [serviceName: string]: string;
+    [serviceName: string]: number;
 }
 
 export interface ApiError extends Error {

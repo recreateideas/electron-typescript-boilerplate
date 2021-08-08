@@ -7,7 +7,7 @@ const electron = { ...(window.require ? window.require('electron') : {}) };
 
 const { ipcRenderer } = electron;
 
-const setIsElectron = (isElectron: boolean) => ({
+export const setIsElectron = (isElectron: boolean) => ({
     type: types.SET_IS_ELECTRON,
     data: { isElectron },
 });
@@ -16,7 +16,12 @@ interface IGetPorts {
     ports: IServicePorts;
 }
 
-const getServicePorts =
+export const setServicePorts = (ports: IServicePorts) => ({
+    type: types.SET_SERVICE_PORTS,
+    data: { ports },
+});
+
+export const getServicePorts =
     () =>
     (dispatch: Dispatch): void => {
         if (ipcRenderer) {
@@ -32,5 +37,3 @@ const getServicePorts =
             });
         }
     };
-
-export { getServicePorts, setIsElectron };

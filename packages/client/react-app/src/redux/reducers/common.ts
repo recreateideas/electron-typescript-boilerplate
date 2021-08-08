@@ -12,6 +12,7 @@ const common = (state: SliceCommon = initialState.common, action: IReduxAction):
                 ...state,
                 isElectron: data.isElectron,
             };
+        case types.SET_SERVICE_PORTS:
         case types.GET_SERVICE_PORTS_SUCCESS:
             return {
                 ...state,
