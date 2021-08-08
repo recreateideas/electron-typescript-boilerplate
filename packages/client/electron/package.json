@@ -5,18 +5,21 @@
     "private": true,
     "main": "./build/main.js",
     "scripts": {
-        "build": "rm -rf build && tsc && yarn copy:react-app",
+        "build": "rm -rf build && tsc && yarn copyfiles",
         "electron": "npm run build && electron .",
         "electron:debug": "yarn electron --debug",
         "test": "echo \"Error: no test specified\"",
-        "copy:react-app": "cp -r node_modules/@stacks/react-app/build build/react-app-build",
-        "postinstall": "copy:react-app"
+        "copyfiles": "sh ./scripts/copyfiles.sh"
     },
     "dependencies": {
         "electron": "13.1.7",
         "fix-path": "3.0.0",
-        "@stacks/react-app": "1.0.0"
+        "@stacks/react-app": "1.0.0",
+        "@stacks/local-service": "1.0.0"
     },
+    "services": [
+        "@stacks/local-service"
+    ],
     "devDependencies": {
         "electron-devtools-installer": "3.2.0"
     },

@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useHealthCheck, useServicePorts } from './hooks';
+import { Loader } from './ui-core';
 
 function App() {
+    const servicePorts = useServicePorts();
+    const isHealthy = useHealthCheck({ servicePorts });
+    const isChecking = isHealthy === undefined;
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React!
-                </a>
-            </header>
+        <div id="app">
+            {isHealthy ? (
+                <div>Healthy</div>
+            ) : !servicePorts ? (
+                <Loader {...{ color: 'green', message: 'setting up services...' }} />
+            ) : isChecking ? (
+                <Loader {...{ color: '#6b5b95', message: 'checking services...' }} />
+            ) : (
+                <Loader
+                    {...{
+                        color: 'red',
+                        freeze: true,
+                        message: 'Services are not responding. Cmd + R to retry.',
+                    }}
+                />
+            )}
         </div>
     );
 }

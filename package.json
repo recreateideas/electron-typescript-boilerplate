@@ -9,9 +9,9 @@
         "bootstrap": "yarn; lerna bootstrap; lerna run build",
         "test": "lerna run test --stream --parallel",
         "electron": "lerna run electron --scope @stacks/electron  --stream",
-        "react:dev": "lerna run start --scope @stacks/react-app --stream",
-        "services:dev": "lerna run dev --scope @stacks/local-service --stream",
-        "dev": "concurrently \"yarn react:dev\" \"yarn services:dev\"",
+        "react": "lerna run start --scope @stacks/react-app --stream",
+        "services": "lerna run dev --scope @stacks/local-service --stream",
+        "dev": "concurrently \"yarn react\" \"yarn services\"",
         "publish": "lerna publish",
         "version": "lerna version --conventional-graduate --yes"
     },

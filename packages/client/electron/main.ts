@@ -48,7 +48,7 @@ const createWindow = (): void => {
         show: false,
     });
 
-    mainWindow.loadFile(path.join(__dirname, './react-app-build/index.html'));
+    mainWindow.loadFile(path.join(__dirname, './react-app/index.html'));
 
     if (debug) {
         Object.assign(process.env, { NODE_ENV: 'development' });
