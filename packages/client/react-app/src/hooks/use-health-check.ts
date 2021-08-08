@@ -7,8 +7,8 @@ interface IUseHealthChecks {
     [serviceName: string]: IServicePorts;
 }
 
-const useHealthCheck = ({ servicePorts }: IUseHealthChecks): boolean => {
-    const [isHealthy, setIsHealthy] = useState(false);
+const useHealthCheck = ({ servicePorts }: IUseHealthChecks): boolean | undefined => {
+    const [isHealthy, setIsHealthy] = useState<boolean | undefined>();
     const { common: commonSelectors } = selectors;
     const isElectron = useSelector(commonSelectors.isElectron);
     useEffect(() => {

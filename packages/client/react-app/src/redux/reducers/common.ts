@@ -16,7 +16,7 @@ const common = (state: SliceCommon = initialState.common, action: IReduxAction):
         case types.GET_SERVICE_PORTS_SUCCESS:
             return {
                 ...state,
-                servicePorts: data.ports,
+                servicePorts: data.servicePorts,
             };
         default:
             return state;

@@ -16,15 +16,20 @@ interface IGetPorts {
     ports: IServicePorts;
 }
 
-export const setServicePorts = (ports: IServicePorts) => ({
+export const setServicePorts = (servicePorts: IServicePorts) => ({
     type: types.SET_SERVICE_PORTS,
-    data: { ports },
+    data: { servicePorts },
 });
 
 export const getServicePorts =
     () =>
     (dispatch: Dispatch): void => {
-        if (ipcRenderer) {
+        /* istanbul ignore else */
+        if (!ipcRenderer) {
+            dispatch({
+                type: types.GET_SERVICE_PORTS_SKIPPED,
+            });
+        } else {
             dispatch({
                 type: types.GET_SERVICE_PORTS_PENDING,
             });
@@ -32,7 +37,7 @@ export const getServicePorts =
             ipcRenderer.on('service-ports', (_: IpcRendererEvent, { ports }: IGetPorts) => {
                 dispatch({
                     type: types.GET_SERVICE_PORTS_SUCCESS,
-                    data: { ports },
+                    data: { servicePorts: ports },
                 });
             });
         }

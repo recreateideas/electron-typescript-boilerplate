@@ -1,5 +1,5 @@
 import { Action, Store } from 'redux';
-import { IServicePorts } from '../typings';
+import { IServicePorts } from '../../typings';
 
 export type GetStore = () => IReduxStore;
 export interface IReduxAction extends Action {

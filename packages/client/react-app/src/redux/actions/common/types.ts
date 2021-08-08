@@ -1,10 +1,11 @@
 import { ITypes } from './types.d';
 
-const types = {
+const types: ITypes = {
     SET_IS_ELECTRON: 'SET_IS_ELECTRON',
     GET_SERVICE_PORTS_PENDING: 'GET_SERVICE_PORTS_PENDING',
     GET_SERVICE_PORTS_SUCCESS: 'GET_SERVICE_PORTS_SUCCESS',
     SET_SERVICE_PORTS: 'SET_SERVICE_PORTS',
-} as ITypes;
+    GET_SERVICE_PORTS_SKIPPED: 'GET_SERVICE_PORTS_SKIPPED',
+};
 
 export default types;
