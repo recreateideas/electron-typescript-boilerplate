@@ -16,12 +16,14 @@
         "services": "lerna run dev --scope @stacks/local-service --stream",
         "dev": "concurrently \"yarn react\" \"yarn services\"",
         "publish": "lerna publish",
-        "version": "lerna version --conventional-graduate --yes"
+        "version": "lerna version --conventional-graduate --yes",
+        "prepare": "husky install"
     },
     "author": "",
     "license": "ISC",
     "devDependencies": {
         "concurrently": "6.2.0",
+        "husky": "7.0.1",
         "lerna": "4.0.0"
     }
 }
