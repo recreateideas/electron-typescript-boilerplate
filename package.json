@@ -8,13 +8,17 @@
         "build": "lerna run build --stream",
         "bootstrap": "yarn; lerna bootstrap; lerna run build",
         "test": "lerna run test --stream --parallel",
-        "electron": "lerna run electron --scope client",
+        "electron": "lerna run electron --scope @stacks/electron  --stream",
+        "react:dev": "lerna run start --scope @stacks/react-app --stream",
+        "services:dev": "lerna run dev --scope @stacks/local-service --stream",
+        "dev": "concurrently \"yarn react:dev\" \"yarn services:dev\"",
         "publish": "lerna publish",
         "version": "lerna version --conventional-graduate --yes"
     },
     "author": "",
     "license": "ISC",
     "devDependencies": {
+        "concurrently": "6.2.0",
         "lerna": "4.0.0"
     }
 }
