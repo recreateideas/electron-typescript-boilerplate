@@ -1,14 +1,14 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import { ErrorHandler, ResponseHandler } from './handlers';
+import { ErrorHandler, ResponseHandler, IHandlerResponse } from './handlers';
 import defaults from './defaults';
 
 export interface IFetcherConfig extends AxiosRequestConfig {
     url: string;
-    errorHandler: ErrorHandler;
-    responseHandler: ResponseHandler;
+    errorHandler?: ErrorHandler;
+    responseHandler?: ResponseHandler;
 }
 
-export const fetcher = async (args: IFetcherConfig) => {
+export const fetcher = async (args: IFetcherConfig): Promise<IHandlerResponse | undefined> => {
     const {
         url,
         data,

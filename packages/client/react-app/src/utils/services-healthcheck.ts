@@ -1,7 +1,8 @@
 import { AxiosError, AxiosResponse } from 'axios';
 import { fetcher, IFetcherConfig } from '../modules';
 import { IServicePorts } from '../typings';
-const services = [
+
+export const services = [
     {
         name: 'local-service',
         path: '/health',

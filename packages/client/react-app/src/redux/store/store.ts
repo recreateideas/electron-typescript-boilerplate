@@ -4,12 +4,8 @@ import reducers from '../reducers';
 
 const slices = combineReducers(reducers);
 
-interface DevWindow extends Window {
-    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: any;
-}
-
-const composeEnhancers = (window as DevWindow).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    ? (window as DevWindow).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
           trace: true,
           traceLimit: 25,
       })

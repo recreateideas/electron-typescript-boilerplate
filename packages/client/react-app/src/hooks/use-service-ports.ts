@@ -7,16 +7,17 @@ const electron = { ...(window.require ? window.require('electron') : {}) };
 
 const { ipcRenderer } = electron;
 
-const useServicePorts = () => {
+const useServicePorts = (): undefined | IServicePorts => {
     const dispatch = useDispatch();
     const {
         common: { getServicePorts, setServicePorts, setIsElectron },
     } = actions;
     const { common: commonSelectors } = selectors;
-    const servicePorts: IServicePorts = useSelector(commonSelectors.servicePorts);
+    const servicePorts: undefined | IServicePorts = useSelector(commonSelectors.servicePorts);
     const isElectron = !!ipcRenderer;
     useEffect(() => {
         dispatch(setIsElectron(isElectron));
+        /* istanbul ignore if */
         if (isElectron) {
             dispatch(getServicePorts());
         } else {

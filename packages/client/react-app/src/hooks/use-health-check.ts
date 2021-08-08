@@ -4,7 +4,7 @@ import { servicesHealthcheck } from '../utils';
 import { IServicePorts } from '../typings';
 
 interface IUseHealthChecks {
-    [serviceName: string]: IServicePorts;
+    servicePorts: IServicePorts | undefined;
 }
 
 const useHealthCheck = ({ servicePorts }: IUseHealthChecks): boolean | undefined => {
@@ -12,7 +12,7 @@ const useHealthCheck = ({ servicePorts }: IUseHealthChecks): boolean | undefined
     const { common: commonSelectors } = selectors;
     const isElectron = useSelector(commonSelectors.isElectron);
     useEffect(() => {
-        if ((isElectron === true && servicePorts) || isElectron === false) {
+        if (servicePorts) {
             const healthCheck = async () => {
                 const result = await servicesHealthcheck({
                     servicePorts,

@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should match snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "@@observable": [Function],
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <App>
+    <div
+      id="app"
+    >
+      <Loader
+        className="setting-up"
+        color="green"
+        message="setting up services..."
+      >
+        <styled.div
+          className="loader setting-up"
+        >
+          <div
+            className="sc-bdnxRM ivVdKc loader setting-up"
+          >
+            <Spinner
+              color="green"
+              radius={40}
+              stroke={5}
+              visible={true}
+            >
+              <div
+                className="react-spinner-material"
+                style={
+                  Object {
+                    "borderColor": "green",
+                    "borderWidth": 5,
+                    "height": 40,
+                    "width": 40,
+                  }
+                }
+              />
+            </Spinner>
+            <styled.div>
+              <div
+                className="sc-gtsrHT iiOSuX"
+              >
+                setting up services...
+              </div>
+            </styled.div>
+          </div>
+        </styled.div>
+      </Loader>
+    </div>
+  </App>
+</Provider>
+`;

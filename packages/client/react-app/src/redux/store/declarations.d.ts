@@ -8,10 +8,6 @@ export interface IReduxAction extends Action {
 }
 
 export interface IReduxStore extends Store {
-    data: {
-        products?: object;
-        isCheckoutPending?: boolean;
-    };
     common: {
         isElectron?: boolean;
         servicePorts?: IServicePorts;

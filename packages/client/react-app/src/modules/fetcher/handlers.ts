@@ -1,6 +1,6 @@
 import { AxiosError, AxiosResponse } from 'axios';
 
-interface IHandlerResponse {
+export interface IHandlerResponse {
     status: number | void;
     data: string | void;
 }

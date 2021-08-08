@@ -22,7 +22,10 @@ describe('setServicePorts', () => {
     };
     it('should return the right action', () => {
         const result = setServicePorts(mockPorts);
-        expect(result).toEqual({ type: types.SET_SERVICE_PORTS, data: { ports: mockPorts } });
+        expect(result).toEqual({
+            type: types.SET_SERVICE_PORTS,
+            data: { servicePorts: mockPorts },
+        });
     });
 });
 
