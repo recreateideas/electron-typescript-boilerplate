@@ -1,7 +1,7 @@
 import { useHealthCheck, useServicePorts } from '../../hooks';
 import { Loader } from '../../ui-core';
 
-function App() {
+export const App = () => {
     const servicePorts = useServicePorts();
     const isHealthy = useHealthCheck({ servicePorts });
     const isChecking = isHealthy === undefined;
@@ -37,6 +37,4 @@ function App() {
             )}
         </div>
     );
-}
-
-export { App };
+};

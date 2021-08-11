@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 import EnzymeToJson from 'enzyme-to-json';
-import store from '../../redux';
+import { store } from '../../redux';
 jest.mock('../../hooks');
 import * as hooks from '../../hooks';
 import { App } from './App';
