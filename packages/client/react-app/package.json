@@ -12,21 +12,6 @@
         "test:cover": "react-scripts test --silent --watchAll=false --coverage",
         "eject": "react-scripts eject"
     },
-    "jest": {
-        "coveragePathIgnorePatterns": [
-            "/tests/",
-            "index.ts",
-            "typings.ts"
-        ],
-        "coverageThreshold": {
-            "global": {
-                "branches": 80,
-                "functions": 80,
-                "lines": 80,
-                "statements": 80
-            }
-        }
-    },
     "devDependencies": {
         "@testing-library/jest-dom": "5.11.4",
         "@testing-library/react": "11.1.0",
