@@ -28,7 +28,7 @@ describe('App', () => {
     });
 
     it('should render .setting-up loader when service-ports are undefined', () => {
-        jest.spyOn(hooks, 'useServicePorts').mockImplementation(() => undefined);
+        jest.spyOn(hooks, 'useServicePorts').mockReturnValue(undefined);
         const wrapper = mount(
             <Provider store={store}>
                 <ServicedApp />
@@ -37,9 +37,21 @@ describe('App', () => {
         const Loader = wrapper.exists('.setting-up');
         expect(Loader).toBeTruthy();
     });
+
+    it('should render App when isHealthy is true', () => {
+        jest.spyOn(hooks, 'useServicePorts').mockReturnValue({ 'some-service': 1111 });
+        jest.spyOn(hooks, 'useHealthCheck').mockReturnValue(true);
+        const wrapper = mount(
+            <Provider store={store}>
+                <ServicedApp />
+            </Provider>
+        );
+        const Loader = wrapper.exists('App');
+        expect(Loader).toBeTruthy();
+    });
     it('should render .checking loader when isHealthy is undefined', () => {
-        jest.spyOn(hooks, 'useServicePorts').mockImplementation(() => ({ 'some-service': 1111 }));
-        jest.spyOn(hooks, 'useHealthCheck').mockImplementation(() => undefined);
+        jest.spyOn(hooks, 'useServicePorts').mockReturnValue({ 'some-service': 1111 });
+        jest.spyOn(hooks, 'useHealthCheck').mockReturnValue(undefined);
         const wrapper = mount(
             <Provider store={store}>
                 <ServicedApp />
@@ -49,8 +61,8 @@ describe('App', () => {
         expect(Loader).toBeTruthy();
     });
     it('should render .not-responding loader when service-ports are loaded and isHealthy is false', () => {
-        jest.spyOn(hooks, 'useServicePorts').mockImplementation(() => ({ 'some-service': 1111 }));
-        jest.spyOn(hooks, 'useHealthCheck').mockImplementation(() => false);
+        jest.spyOn(hooks, 'useServicePorts').mockReturnValue({ 'some-service': 1111 });
+        jest.spyOn(hooks, 'useHealthCheck').mockReturnValue(false);
         const wrapper = mount(
             <Provider store={store}>
                 <ServicedApp />

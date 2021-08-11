@@ -17,9 +17,5 @@ export const setRouteParams =
     };
 
 export const navigateTo = (path: LocationDescriptor) => (dispatch: Dispatch) => {
-    // dispatch(push(`${path}`));
-    dispatch({
-        type: '@router/CALL_HISTORY_METHOD',
-        payload: { method: 'push', args: ['/some/path'] },
-    });
+    dispatch(push(`${path}`));
 };

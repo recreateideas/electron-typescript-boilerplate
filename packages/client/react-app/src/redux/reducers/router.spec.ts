@@ -1,23 +1,20 @@
 import { RouterState } from 'connected-react-router';
-import { routerReducer as router } from './router';
-import initialState from '../store/initialState';
+import { routerReducer, router } from './router';
 
-describe('Store slice - router', () => {
-    const baseState = {
+describe('Store slice - routerReducer', () => {
+    const defaultRouterState = {
         action: 'POP',
         location: {
-            query: { a: 'b' },
-            pathname: '',
+            query: {},
+            pathname: '/',
             search: '',
-            state: '',
+            state: undefined,
             hash: '',
         },
     } as RouterState;
     it('SET_ROUTE_PARAMS - should return the right data', () => {
-        const state = {
-            ...baseState,
-        };
-        const result = router(state, {
+        const state = defaultRouterState;
+        const result = routerReducer(state, {
             type: 'SET_ROUTE_PARAMS',
             data: { params: { some: 'data' } },
         });
@@ -25,5 +22,25 @@ describe('Store slice - router', () => {
             ...state,
             params: { some: 'data' },
         });
+    });
+
+    it('SET_ROUTE_PARAMS - should use defaultRouterState and return the right data', () => {
+        const result = routerReducer(undefined, {
+            type: 'SET_ROUTE_PARAMS',
+            data: { params: { some: 'data' } },
+        });
+        expect(result).toEqual({
+            ...defaultRouterState,
+            params: { some: 'data' },
+        });
+    });
+
+    it('SET_ROUTE_PARAMS - router - should default state to empty object and return the right data', () => {
+        const action = {
+            type: 'SET_ROUTE_PARAMS',
+            data: { params: { some: 'data' } },
+        };
+        const result = router(undefined, action);
+        expect(result).toEqual(action.data);
     });
 });

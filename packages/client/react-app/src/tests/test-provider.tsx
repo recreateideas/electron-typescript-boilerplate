@@ -1,16 +1,13 @@
 import { ReactElement } from 'react';
 import { Provider } from 'react-redux';
 import configureMockStore, { MockStoreEnhanced } from 'redux-mock-store';
-import { routerMiddleware } from 'connected-react-router';
 import { MemoryRouter } from 'react-router-dom';
 import { mount, shallow } from 'enzyme';
 import thunk from 'redux-thunk';
-import { createBrowserHistory } from 'history';
 import { store as myStore } from '../redux';
 
 export const TestProvider = (defaultState = {}) => {
-    const history = createBrowserHistory();
-    const mockStore = configureMockStore([thunk, routerMiddleware(history)]);
+    const mockStore = configureMockStore([thunk]);
     const router = {
         push: jest.fn(),
         action: 'POP',

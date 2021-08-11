@@ -4,7 +4,7 @@ import { AnyAction } from 'redux';
 
 const { getStore } = TestProvider();
 
-xdescribe('navigateTo', () => {
+describe('navigateTo', () => {
     it('should return the right action', () => {
         const store = getStore();
         store.dispatch(navigateTo('/some/path') as unknown as AnyAction);
