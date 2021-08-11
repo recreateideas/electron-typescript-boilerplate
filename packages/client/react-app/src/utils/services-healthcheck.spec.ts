@@ -57,6 +57,26 @@ describe('servicesHealthcheck', () => {
         expect(handlerSpy).toHaveBeenCalledTimes(2);
     });
 
+    it('should handle any 20X code that is not 200 with errorHandler', async () => {
+        const handlerSpy = jest
+            .spyOn(modules, 'fetcher')
+            .mockImplementationOnce((config) => {
+                const response = { status: 201 } as AxiosResponse;
+                config.responseHandler?.(response);
+                return Promise.resolve(undefined);
+            })
+            .mockImplementation((config) => {
+                const response = { status: 200 } as AxiosResponse;
+                config.responseHandler?.(response);
+                return Promise.resolve(undefined);
+            });
+        const servicePorts = {
+            'local-service': 1111,
+        };
+        await servicesHealthcheck({ servicePorts, isElectron: false });
+        expect(handlerSpy).toHaveBeenCalledTimes(2);
+    });
+
     it('should call errorHandler as many times as the value of maxRetries if NOT successful', async () => {
         const errorHandlerSpy = jest.spyOn(modules, 'fetcher').mockImplementation((config) => {
             const err = {

@@ -33,7 +33,7 @@ describe('getServicePorts', () => {
         store.dispatch(getServicePorts() as unknown as AnyAction);
         expect(store.getActions()).toEqual([
             {
-                type: 'GET_SERVICE_PORTS_SKIPPED',
+                type: types.GET_SERVICE_PORTS_SKIPPED,
             },
         ]);
     });
