@@ -1,3 +1,4 @@
 import * as common from './common';
+import * as router from './router';
 
-export { common };
+export { common, router };

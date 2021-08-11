@@ -1,5 +1,5 @@
 import { Editor } from './Editor';
-import { TestProvider } from '../../tests';
+import { TestProvider } from '../../../tests';
 
 const { mountWithProvider } = TestProvider({});
 

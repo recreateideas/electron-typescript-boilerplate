@@ -2,9 +2,6 @@ import common from './common';
 import initialState from '../store/initialState';
 
 describe('Store slice - common', () => {
-    const state = {
-        common: {},
-    };
     it('SOME_UNKNOWN_TYPE - should return the initial state', () => {
         const result = common(undefined, { type: 'SOME_UNKNOWN_TYPE' });
         expect(result).toEqual(initialState.common);

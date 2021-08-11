@@ -5,14 +5,14 @@ import EnzymeToJson from 'enzyme-to-json';
 import { store } from '../../redux';
 jest.mock('../../hooks');
 import * as hooks from '../../hooks';
-import { App } from './App';
+import { ServicedApp } from './ServicedApp';
 
 describe('App', () => {
     it('renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(
             <Provider store={store}>
-                <App />
+                <ServicedApp />
             </Provider>,
             div
         );
@@ -21,7 +21,7 @@ describe('App', () => {
     it('should match snapshot', () => {
         const subject = mount(
             <Provider store={store}>
-                <App />
+                <ServicedApp />
             </Provider>
         );
         expect(EnzymeToJson(subject)).toMatchSnapshot();
@@ -31,7 +31,7 @@ describe('App', () => {
         jest.spyOn(hooks, 'useServicePorts').mockImplementation(() => undefined);
         const wrapper = mount(
             <Provider store={store}>
-                <App />
+                <ServicedApp />
             </Provider>
         );
         const Loader = wrapper.exists('.setting-up');
@@ -42,7 +42,7 @@ describe('App', () => {
         jest.spyOn(hooks, 'useHealthCheck').mockImplementation(() => undefined);
         const wrapper = mount(
             <Provider store={store}>
-                <App />
+                <ServicedApp />
             </Provider>
         );
         const Loader = wrapper.exists('.checking');
@@ -53,7 +53,7 @@ describe('App', () => {
         jest.spyOn(hooks, 'useHealthCheck').mockImplementation(() => false);
         const wrapper = mount(
             <Provider store={store}>
-                <App />
+                <ServicedApp />
             </Provider>
         );
         const Loader = wrapper.exists('.not-responding');

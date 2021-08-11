@@ -1,9 +1,12 @@
 import Enzyme, { shallow, render, mount } from 'enzyme';
+import { createSerializer } from 'enzyme-to-json';
+import { toMatchImageSnapshot } from 'jest-image-snapshot';
 
-/* React 16 Enzyme adapter */
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 
-/* Make Enzyme functions available in all test files without importing */
+expect.extend({ toMatchImageSnapshot });
+//@ts-ignore
+expect.addSnapshotSerializer(createSerializer({ mode: 'deep' }));
 Enzyme.configure({ adapter: new Adapter() });
 
 window.shallow = shallow;

@@ -1,7 +1,5 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-jest.mock('electron');
-import electron from 'electron';
 import { setIsElectron, setServicePorts, getServicePorts } from './actions';
 import types from './types';
 import { AnyAction } from 'redux';

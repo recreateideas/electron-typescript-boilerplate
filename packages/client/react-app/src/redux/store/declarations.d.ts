@@ -1,4 +1,5 @@
 import { Action, Store } from 'redux';
+import { RouterState } from 'connected-react-router';
 import { IServicePorts } from '../../typings';
 
 export type GetStore = () => IReduxStore;
@@ -12,4 +13,5 @@ export interface IReduxStore extends Store {
         isElectron?: boolean;
         servicePorts?: IServicePorts;
     };
+    router: RouterState;
 }
