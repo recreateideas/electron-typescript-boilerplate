@@ -3,12 +3,14 @@ import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { store } from './redux';
-import { App } from './App';
+import { App, ThemeProviderConnected } from './App';
 
 ReactDOM.render(
     <StrictMode>
         <Provider store={store}>
-            <App />
+            <ThemeProviderConnected>
+                <App />
+            </ThemeProviderConnected>
         </Provider>
     </StrictMode>,
     document.getElementById('root')

@@ -3,7 +3,7 @@ import { TestProvider } from '../../../tests';
 
 const { mountWithProvider } = TestProvider({});
 
-describe('Editor', () => {
+describe('<Editor/>', () => {
     it('should render', () => {
         const root = mountWithProvider(<Editor />);
 

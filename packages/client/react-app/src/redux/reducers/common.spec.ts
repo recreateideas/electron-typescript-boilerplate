@@ -1,5 +1,5 @@
 import common from './common';
-import initialState from '../store/initialState';
+import { initialState } from '../store';
 
 describe('Store slice - common', () => {
     it('SOME_UNKNOWN_TYPE - should return the initial state', () => {

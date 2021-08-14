@@ -1,8 +1,9 @@
-import { IReduxStore } from './declarations';
+import { AppState } from './models.d';
 
-const initialState = {
+export const initialState = {
     common: {},
-    router: {},
-} as IReduxStore;
-
-export default initialState;
+    theme: {
+        mode: 'light',
+        userAgent: undefined,
+    },
+} as AppState;

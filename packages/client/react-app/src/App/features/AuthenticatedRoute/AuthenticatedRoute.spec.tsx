@@ -1,7 +1,8 @@
 import { AuthenticatedRoute } from './AuthenticatedRoute';
-jest.mock('../../../redux');
-import * as redux from '../../../redux';
 import { TestProvider } from '../../../tests';
+jest.mock('../../../redux');
+// eslint-disable-next-line import/first
+import * as redux from '../../../redux';
 
 const { mountWithRouterProps } = TestProvider({});
 

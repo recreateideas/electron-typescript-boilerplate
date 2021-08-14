@@ -2,7 +2,7 @@ import { App } from './App';
 import { TestProvider } from '../tests';
 
 const { mountWithRouterProps } = TestProvider();
-describe('App', () => {
+describe('<App/>', () => {
     it('should render', () => {
         const state = {
             common: {},

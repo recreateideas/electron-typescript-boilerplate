@@ -1,3 +1,4 @@
+/* eslint-disable import/first */
 jest.mock('electron');
 jest.mock('../redux');
 import * as redux from '../redux';
@@ -12,7 +13,7 @@ describe('useServicePorts', () => {
         const { result } = renderWrappedHook(() => useServicePorts());
         expect(result.current).toEqual(defaultServicePorts);
     });
-    it('should return defaultServicePorts by default', () => {
+    it('should return the servicePorts found in the store', () => {
         const servicePorts = {
             'some-service': 1111,
         };

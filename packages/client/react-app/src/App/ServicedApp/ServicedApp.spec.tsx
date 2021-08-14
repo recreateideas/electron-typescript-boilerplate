@@ -3,11 +3,12 @@ import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 import EnzymeToJson from 'enzyme-to-json';
 import { store } from '../../redux';
-jest.mock('../../hooks');
-import * as hooks from '../../hooks';
 import { ServicedApp } from './ServicedApp';
+jest.mock('../../hooks');
+// eslint-disable-next-line import/first
+import * as hooks from '../../hooks';
 
-describe('App', () => {
+describe('<ServicedApp/>', () => {
     it('renders without crashing', () => {
         const div = document.createElement('div');
         ReactDOM.render(

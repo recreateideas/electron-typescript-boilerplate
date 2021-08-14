@@ -3,8 +3,9 @@ import { IReduxStore } from '../store';
 import { IServicePorts } from '../../typings';
 
 const servicePorts: Selector<IReduxStore, IServicePorts | undefined> = (state) =>
-    state.common.servicePorts;
+    state.appState.common.servicePorts;
 
-const isElectron: Selector<IReduxStore, boolean | undefined> = (state) => state.common.isElectron;
+const isElectron: Selector<IReduxStore, boolean | undefined> = (state) =>
+    state.appState.common.isElectron;
 
 export { isElectron, servicePorts };

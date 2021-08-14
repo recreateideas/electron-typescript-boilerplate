@@ -1,8 +1,8 @@
 import { IReduxStore, IReduxAction } from '../store';
-import initialState from '../store/initialState';
+import { initialState } from '../store/initialState';
 import { types } from '../actions/common';
 
-type SliceCommon = IReduxStore['common'];
+type SliceCommon = IReduxStore['appState']['common'];
 
 const common = (state: SliceCommon = initialState.common, action: IReduxAction): SliceCommon => {
     const { type, data } = action;

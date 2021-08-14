@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Loader/> should render 1`] = `
+<div
+  className="sc-bdnxRM ivVdKc loader undefined"
+>
+  <div
+    className="react-spinner-material"
+    style={
+      Object {
+        "borderColor": "orange",
+        "borderWidth": 5,
+        "height": 40,
+        "width": 40,
+      }
+    }
+  />
+</div>
+`;

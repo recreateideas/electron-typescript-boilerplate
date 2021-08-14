@@ -1,5 +1,3 @@
-import initialState from './initialState';
-
-export * from './declarations.d';
-export { initialState };
+export * from './initialState';
+export * from './models.d';
 export * from './store';

@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 import { useHealthCheck, useServicePorts } from '../../hooks';
-import { Loader } from '../../ui-core';
+import { Loader } from '../ui-core';
 import { App } from '../App';
 
 export const ServicedApp = (): ReactElement => {

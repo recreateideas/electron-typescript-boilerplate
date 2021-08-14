@@ -1,3 +1,4 @@
+/* eslint-disable import/first */
 import { renderWrappedHook } from '../tests';
 import useHealthCheck from './use-health-check';
 jest.mock('../utils');
